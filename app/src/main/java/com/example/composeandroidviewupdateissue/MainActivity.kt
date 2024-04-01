@@ -1,6 +1,7 @@
 package com.example.composeandroidviewupdateissue
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
@@ -75,9 +76,10 @@ class MainActivity : AppCompatActivity() {
                             it.addView(
                                 TextView(it.context).apply {
                                     text = message
-                                    layoutParams = ViewGroup.LayoutParams(
-                                        ViewGroup.LayoutParams.MATCH_PARENT,
-                                        ViewGroup.LayoutParams.WRAP_CONTENT
+                                    layoutParams = FrameLayout.LayoutParams(
+                                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                                        Gravity.CENTER
                                     )
                                     setTextColor(it.context.getColor(R.color.black))
                                 }
