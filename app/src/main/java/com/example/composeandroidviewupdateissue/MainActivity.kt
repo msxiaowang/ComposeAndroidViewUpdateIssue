@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             LaunchedEffect(Unit) {
                 // "Updated string!" shows
                 delay(2000)
-                // Scroll to make AndroidView invisbile
+                // Scroll to make AndroidView invisible
                 state.scrollToItem(1, 200)
                 // Mock the user behavior that scrolls slowly
                 while (state.canScrollBackward) {
