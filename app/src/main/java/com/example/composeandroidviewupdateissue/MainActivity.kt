@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             ) {
                 item {
                     var message: String? by remember { mutableStateOf(null) }
+                    var composeTrigger by remember { mutableStateOf(false) }
                     LaunchedEffect(Unit) {
                         delay(20)
                         message = "Updated string!"
@@ -69,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                         },
                         onReset = { it.removeAllViews() },
                         update = {
-                            if (message == null) {
+                            if (message == null || composeTrigger) {
                                 return@AndroidView
                             }
 
@@ -84,6 +85,7 @@ class MainActivity : AppCompatActivity() {
                                     setTextColor(it.context.getColor(R.color.black))
                                 }
                             )
+                            composeTrigger = true
                         }
                     )
                 }
